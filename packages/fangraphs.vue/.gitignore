@@ -25,3 +25,6 @@ dist-ssr
 
 # vscode settings
 .vscode
+
+# panda css
+styled-system
