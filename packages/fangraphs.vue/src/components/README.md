@@ -1,18 +1,16 @@
 # Components
 
-FanGraphs.vue is supported following components.
+FanGraphs.vue supports following components.
 
 - Badge
-- Button
-- Callout
-- Card
+- [x] Button
+- [x] Callout
+- [x] Card
 - Checkbox
 - Icon Button
 - Radio Group
 - Select
-- Separator
 - Switch
-- Table
+- [x] Table
 - Tabs
-- Text Area
-- Text Field
+- [x] Text Field

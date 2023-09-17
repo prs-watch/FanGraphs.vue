@@ -1,12 +1,10 @@
 import { cva } from '../../../styled-system/css'
 
-export const button = cva({
+export const textfield = cva({
   base: {
-    margin: 'auto',
-    color: 'white',
-    _hover: {
-      opacity: 'basic',
-    },
+    borderWidth: '0.1rem',
+    borderColor: 'black',
+    borderStyle: 'solid',
   },
   variants: {
     size: {
@@ -14,13 +12,8 @@ export const button = cva({
       md: { padding: 'md', margin: 'md', fontSize: 'md' },
       lg: { padding: 'lg', margin: 'lg', fontSize: 'lg' },
     },
-    color: {
-      primary: { backgroundColor: 'primary' },
-      secondary: { backgroundColor: 'secondary' },
-    },
   },
   defaultVariants: {
     size: 'md',
-    color: 'primary',
   },
 })
