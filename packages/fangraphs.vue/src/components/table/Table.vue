@@ -4,7 +4,7 @@ import { css } from '../../../styled-system/css'
 
 defineProps({
   headers: Object as PropType<String[]>,
-  contents: Object as PropType<[]>,
+  contents: Object as PropType<String[][]>,
 })
 </script>
 

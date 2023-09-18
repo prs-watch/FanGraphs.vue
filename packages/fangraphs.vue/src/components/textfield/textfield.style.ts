@@ -8,9 +8,11 @@ export const textfield = cva({
   },
   variants: {
     size: {
+      xs: { padding: 'xs', margin: 'xs', fontSize: 'xs' },
       sm: { padding: 'sm', margin: 'sm', fontSize: 'sm' },
       md: { padding: 'md', margin: 'md', fontSize: 'md' },
       lg: { padding: 'lg', margin: 'lg', fontSize: 'lg' },
+      xl: { padding: 'xl', margin: 'xl', fontSize: 'xl' },
     },
   },
   defaultVariants: {

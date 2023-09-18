@@ -5,8 +5,8 @@ import { SizeType, ColorType } from '../../../panda.config.type'
 
 defineProps({
   label: String,
-  size: Object as PropType<SizeType>,
-  color: Object as PropType<ColorType>,
+  size: String as PropType<SizeType>,
+  color: String as PropType<ColorType>,
 })
 </script>
 
