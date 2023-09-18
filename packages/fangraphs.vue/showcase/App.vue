@@ -52,4 +52,9 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
   <C.Card title="Table" size="lg">
     <C.Table :headers="headers" :contents="contents" />
   </C.Card>
+  <C.Card title="Checkbox" size="lg">
+    <C.Checkbox size="sm" label="Active Roster" />
+    <C.Checkbox label="Split Team" />
+    <C.Checkbox size="lg" label="Rookie" />
+  </C.Card>
 </template>

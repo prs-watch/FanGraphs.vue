@@ -51,6 +51,7 @@ export default defineConfig({
         lightgray: { value: '#e5e5e5' },
         whitesmoake: { value: '#f5f5f5' },
         lightblue: { value: '#eaf2f8' },
+        darkblue: { value: '#1a89c8' },
       },
     },
     semanticTokens: {
@@ -59,6 +60,7 @@ export default defineConfig({
         secondary: { value: '{colors.brown}' },
         disabled: { value: '{colors.whitesmoak}' },
         focused: { value: '{colors.lightgray}' },
+        checked: { value: '{colors.darkblue}' },
       },
       // opacity
       opacity: {
