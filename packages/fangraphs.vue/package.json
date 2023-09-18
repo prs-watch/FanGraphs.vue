@@ -19,7 +19,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "prepare": "panda codegen",
-    "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue} && prettier -w example/*.{ts,vue} && prettier -w example/**/*.{ts,vue}"
+    "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}"
   },
   "dependencies": {
     "radix-vue": "^0.2.2",
