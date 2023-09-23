@@ -26,6 +26,7 @@ defineProps({
 
 <template>
   <div>
+    <!-- NOTE: it may be bug of Radix-Vue that default-value is not work. -->
     <SelectRoot>
       <SelectTrigger :class="root({ size: size })">
         <SelectValue :placeholder="placeholder" />
