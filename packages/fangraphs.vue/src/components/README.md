@@ -7,10 +7,7 @@ FanGraphs.vue supports following components.
 - [x] Callout
 - [x] Card
 - [x] Checkbox
-- Icon Button
-- Radio Group
-- Select
-- Switch
+- [x] Select
 - [x] Table
 - Tabs
 - [x] Text Field

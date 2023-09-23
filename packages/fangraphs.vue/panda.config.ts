@@ -17,7 +17,7 @@ export default defineConfig({
   theme: {
     extend: {},
     tokens: {
-      // width, height
+      // width, height (as relative)
       sizes: {
         xs: { value: '10%' },
         sm: { value: '30%' },

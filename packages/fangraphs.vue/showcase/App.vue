@@ -12,6 +12,11 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
     return 'TD' + rowIndex + colIndex
   })
 })
+
+// dummy data for Select showcase
+const items = [...Array(10)].map((_, index) => {
+  return 'Item' + index
+})
 </script>
 
 <template>
@@ -56,5 +61,9 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
     <C.Checkbox size="sm" label="Active Roster" />
     <C.Checkbox label="Split Team" />
     <C.Checkbox size="lg" label="Rookie" />
+  </C.Card>
+  <C.Card title="Select" size="lg">
+    <C.Select :items="items" />
+    <C.Select size="lg" :items="items" placeholder="select-lg" />
   </C.Card>
 </template>
