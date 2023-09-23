@@ -1,8 +1,10 @@
 import { cva } from '../../../styled-system/css'
 
-export const span = cva({
+export const lab = cva({
   base: {
-    userSelect: 'none',
+    display: 'flex',
+    textAlign: 'left',
+    alignItems: 'center',
   },
   variants: {
     size: {

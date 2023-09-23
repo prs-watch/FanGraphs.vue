@@ -15,7 +15,7 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
 
 // dummy data for Select showcase
 const items = [...Array(10)].map((_, index) => {
-  return 'Item' + index
+  return { label: 'Item' + index, value: index.toString() }
 })
 </script>
 
@@ -58,13 +58,14 @@ const items = [...Array(10)].map((_, index) => {
     <C.Table :headers="headers" :contents="contents" />
   </C.Card>
   <C.Card title="Checkbox" size="lg">
-    <C.Checkbox size="sm" label="Active Roster" />
-    <C.Checkbox label="Split Team" />
-    <C.Checkbox size="lg" label="Rookie" />
+    <C.Checkbox label="Rookie" size="sm" />
+    <C.Checkbox label="Rookie" />
+    <C.Checkbox label="Rookie" size="lg" />
   </C.Card>
   <C.Card title="Select" size="lg">
-    <C.Select :items="items" />
-    <C.Select size="lg" :items="items" />
+    <C.Select :items="items" label="Season" size="sm" />
+    <C.Select :items="items" label="Season" default="5" />
+    <C.Select :items="items" label="Season" size="lg" />
   </C.Card>
   <C.Card title="Badge" size="lg">
     <C.Badge color="primary" label="Podcast" />
