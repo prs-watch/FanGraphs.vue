@@ -25,37 +25,37 @@ defineProps({
 </script>
 
 <template>
-  <div>
-    <!-- NOTE: it may be bug of Radix-Vue that default-value is not work. -->
-    <SelectRoot>
-      <SelectTrigger :class="root({ size: size })">
-        <SelectValue :placeholder="placeholder" />
-        <Icon icon="icon-park-solid:down-one" />
-      </SelectTrigger>
-      <SelectPortal>
-        <SelectContent position="popper" :class="content({ size: size })">
-          <SelectViewport>
-            <SelectGroup>
-              <SelectItem
-                v-for="(item, index) in items"
-                :key="index"
-                :value="item"
-                :class="
-                  css({
-                    border: 'lightgray',
-                    outline: 'none',
-                    _hover: {
-                      backgroundColor: 'lightblue',
-                    },
-                  })
-                "
-              >
-                <SelectItemText>{{ item }}</SelectItemText>
-              </SelectItem>
-            </SelectGroup>
-          </SelectViewport>
-        </SelectContent>
-      </SelectPortal>
-    </SelectRoot>
-  </div>
+  <!-- NOTE: it may be bug of Radix-Vue that default-value is not work. -->
+  <SelectRoot>
+    <SelectTrigger :class="root({ size: size })">
+      <SelectValue :placeholder="placeholder" />
+      <Icon icon="icon-park-solid:down-one" />
+    </SelectTrigger>
+    <SelectPortal>
+      <SelectContent position="popper" :class="content({ size: size })">
+        <SelectViewport>
+          <SelectGroup>
+            <SelectItem
+              v-for="(item, index) in items"
+              :key="index"
+              :value="item"
+              :class="
+                css({
+                  alignItems: 'center',
+                  position: 'relative',
+                  border: 'lightgray',
+                  outline: 'none',
+                  _hover: {
+                    backgroundColor: 'lightblue',
+                  },
+                })
+              "
+            >
+              <SelectItemText>{{ item }}</SelectItemText>
+            </SelectItem>
+          </SelectGroup>
+        </SelectViewport>
+      </SelectContent>
+    </SelectPortal>
+  </SelectRoot>
 </template>

@@ -64,7 +64,7 @@ const items = [...Array(10)].map((_, index) => {
   </C.Card>
   <C.Card title="Select" size="lg">
     <C.Select :items="items" />
-    <C.Select size="lg" :items="items" placeholder="select-lg" />
+    <C.Select size="lg" :items="items" />
   </C.Card>
   <C.Card title="Badge" size="lg">
     <C.Badge color="primary" label="Podcast" />
