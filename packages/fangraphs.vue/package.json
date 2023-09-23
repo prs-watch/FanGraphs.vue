@@ -19,12 +19,14 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "prepare": "panda codegen",
-    "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue} && prettier -w example/*.{ts,vue} && prettier -w example/**/*.{ts,vue}"
+    "format": "prettier -w src/*.{ts,vue} && prettier -w src/**/*.{ts,vue}"
   },
   "dependencies": {
+    "radix-vue": "^0.2.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@iconify/vue": "^4.1.1",
     "@pandacss/dev": "^0.14.0",
     "@types/node": "^20.6.0",
     "@vitejs/plugin-vue": "^4.2.3",

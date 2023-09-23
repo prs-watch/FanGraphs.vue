@@ -4,7 +4,7 @@ import { textfield } from './textfield.style.ts'
 import { SizeType } from '../../../panda.config.type'
 
 defineProps({
-  size: Object as PropType<SizeType>,
+  size: String as PropType<SizeType>,
 })
 </script>
 
