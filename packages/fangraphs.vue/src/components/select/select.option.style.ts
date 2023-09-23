@@ -1,11 +1,6 @@
 import { cva } from '../../../styled-system/css'
 
-export const lab = cva({
-  base: {
-    display: 'flex',
-    textAlign: 'left',
-    alignItems: 'center',
-  },
+export const option = cva({
   variants: {
     size: {
       xs: { fontSize: 'xs' },

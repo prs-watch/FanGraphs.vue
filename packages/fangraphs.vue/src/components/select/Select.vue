@@ -1,61 +1,85 @@
 <script setup lang="ts">
-import { PropType } from 'vue'
-import {
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectItemText,
-  SelectPortal,
-  SelectRoot,
-  SelectTrigger,
-  SelectValue,
-  SelectViewport,
-} from 'radix-vue'
+import * as select from '@zag-js/select'
+import { normalizeProps, useMachine } from '@zag-js/vue'
+import { PropType, computed, Teleport } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import { Icon } from '@iconify/vue'
 import { css } from '../../../styled-system/css'
 import { root } from './select.root.style'
-import { content } from './select.content.style'
+import { lab } from './select.label.style'
+import { value } from './select.value.style'
+import { menu } from './select.menu.style'
+import { option } from './select.option.style'
 import { SizeType } from '../../../panda.config.type'
 
-defineProps({
-  items: Object as PropType<string[]>,
+const props = defineProps({
+  items: Object as PropType<{ label: String; value: String }[]>,
+  default: String,
+  label: String,
   size: String as PropType<SizeType>,
-  placeholder: String,
 })
+const collection = select.collection({
+  items: props.items ? props.items : [],
+})
+const [state, send] = useMachine(
+  select.machine({
+    id: uuidv4(),
+    collection,
+    value: props.default ? [props.default] : [],
+  }),
+)
+const api = computed(() => select.connect(state.value, send, normalizeProps))
 </script>
 
 <template>
-  <!-- NOTE: it may be bug of Radix-Vue that default-value is not work. -->
-  <SelectRoot>
-    <SelectTrigger :class="root({ size: size })">
-      <SelectValue :placeholder="placeholder" />
-      <Icon icon="icon-park-solid:down-one" />
-    </SelectTrigger>
-    <SelectPortal>
-      <SelectContent position="popper" :class="content({ size: size })">
-        <SelectViewport>
-          <SelectGroup>
-            <SelectItem
-              v-for="(item, index) in items"
-              :key="index"
-              :value="item"
-              :class="
-                css({
-                  alignItems: 'center',
-                  position: 'relative',
-                  border: 'lightgray',
-                  outline: 'none',
-                  _hover: {
-                    backgroundColor: 'lightblue',
-                  },
-                })
-              "
-            >
-              <SelectItemText>{{ item }}</SelectItemText>
-            </SelectItem>
-          </SelectGroup>
-        </SelectViewport>
-      </SelectContent>
-    </SelectPortal>
-  </SelectRoot>
+  <div :class="root({ size: size })">
+    <label v-bind="api.labelProps" :class="lab({ size: size })">{{
+      label
+    }}</label>
+    <button
+      v-bind="api.triggerProps"
+      :class="
+        css({
+          display: 'inline-flex',
+          alignItems: 'center',
+          border: 'black',
+        })
+      "
+    >
+      <span :class="value({ size: size })">{{ api.valueAsString }}</span>
+      <span>
+        <Icon
+          icon="icon-park-solid:down-one"
+          :class="
+            css({
+              color: 'gray',
+            })
+          "
+        />
+      </span>
+    </button>
+  </div>
+
+  <Teleport to="body">
+    <div v-bind="api.positionerProps" :class="menu({ size: size })">
+      <ul v-bind="api.contentProps">
+        <li
+          v-for="(item, index) in items"
+          :key="index"
+          v-bind="api.getItemProps({ item })"
+          :class="
+            css({
+              border: 'lightgray',
+              outline: 'none',
+              _hover: {
+                backgroundColor: 'lightgray',
+              },
+            })
+          "
+        >
+          <span :class="option({ size: size })">{{ item.label }}</span>
+        </li>
+      </ul>
+    </div>
+  </Teleport>
 </template>

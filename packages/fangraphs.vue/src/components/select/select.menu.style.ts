@@ -1,6 +1,6 @@
 import { cva } from '../../../styled-system/css'
 
-export const content = cva({
+export const menu = cva({
   base: {
     backgroundColor: 'white',
   },

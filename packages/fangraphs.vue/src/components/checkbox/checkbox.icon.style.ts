@@ -3,6 +3,7 @@ import { cva } from '../../../styled-system/css'
 export const icon = cva({
   base: {
     backgroundColor: 'checked',
+    color: 'white',
   },
   variants: {
     size: {

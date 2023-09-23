@@ -4,31 +4,23 @@ import { normalizeProps, useMachine } from '@zag-js/vue'
 import { v4 as uuidv4 } from 'uuid'
 import { PropType, computed } from 'vue'
 import { Icon } from '@iconify/vue'
-import { css } from '../../../styled-system/css'
+import { root } from './checkbox.root.style'
 import { control } from './checkbox.control.style'
 import { icon } from './checkbox.icon.style'
-import { text } from './checkbox.label.style'
+import { lab } from './checkbox.label.style'
 import { SizeType } from '../../../panda.config.type'
-
-const [state, send] = useMachine(checkbox.machine({ id: uuidv4() }))
-const api = computed(() => checkbox.connect(state.value, send, normalizeProps))
 
 defineProps({
   label: String,
   size: String as PropType<SizeType>,
 })
+
+const [state, send] = useMachine(checkbox.machine({ id: uuidv4() }))
+const api = computed(() => checkbox.connect(state.value, send, normalizeProps))
 </script>
 
 <template>
-  <label
-    v-bind="api.rootProps"
-    :class="
-      css({
-        display: 'inline-flex',
-        alignItems: 'center',
-      })
-    "
-  >
+  <label v-bind="api.rootProps" :class="root({ size: size })">
     <div v-bind="api.controlProps" :class="control({ size: size })">
       <Icon
         icon="radix-icons:check"
@@ -37,7 +29,7 @@ defineProps({
       />
     </div>
     <input v-bind="api.hiddenInputProps" />
-    <span v-bind="api.labelProps" :class="text({ size: size })">
+    <span v-bind="api.labelProps" :class="lab({ size: size })">
       {{ label }}
     </span>
   </label>
