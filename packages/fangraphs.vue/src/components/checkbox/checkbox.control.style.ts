@@ -1,11 +1,10 @@
 import { cva } from '../../../styled-system/css'
 
-export const checkbox = cva({
+export const control = cva({
   base: {
     border: 'black',
-    alignItems: 'center',
-    justifyContent: 'center',
     display: 'flex',
+    alignItems: 'center',
   },
   variants: {
     size: {

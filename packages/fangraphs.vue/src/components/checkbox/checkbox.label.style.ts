@@ -1,9 +1,6 @@
 import { cva } from '../../../styled-system/css'
 
-export const span = cva({
-  base: {
-    userSelect: 'none',
-  },
+export const text = cva({
   variants: {
     size: {
       xs: { fontSize: 'xs' },

@@ -58,9 +58,7 @@ const items = [...Array(10)].map((_, index) => {
     <C.Table :headers="headers" :contents="contents" />
   </C.Card>
   <C.Card title="Checkbox" size="lg">
-    <C.Checkbox size="sm" label="Active Roster" />
-    <C.Checkbox label="Split Team" />
-    <C.Checkbox size="lg" label="Rookie" />
+    <C.Checkbox label="Rookie" />
   </C.Card>
   <C.Card title="Select" size="lg">
     <C.Select :items="items" />
