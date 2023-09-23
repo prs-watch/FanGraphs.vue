@@ -41,9 +41,7 @@ defineProps({
                 :value="item"
                 :class="
                   css({
-                    borderWidth: '0.1rem',
-                    borderStyle: 'solid',
-                    borderColor: 'lightgray',
+                    border: 'lightgray',
                     outline: 'none',
                     _hover: {
                       backgroundColor: 'lightblue',

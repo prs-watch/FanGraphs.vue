@@ -1,14 +1,10 @@
 import { cva } from '../../../styled-system/css'
 
 export const body = cva({
-  base: {
-    borderWidth: '0.1rem',
-    borderStyle: 'solid',
-  },
   variants: {
     color: {
-      primary: { borderColor: 'primary' },
-      secondary: { borderColor: 'secondary' },
+      primary: { border: 'primary' },
+      secondary: { border: 'secondary' },
     },
     size: {
       xs: { padding: 'xs' },

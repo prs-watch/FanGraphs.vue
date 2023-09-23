@@ -2,9 +2,7 @@ import { cva } from '../../../styled-system/css'
 
 export const textfield = cva({
   base: {
-    borderWidth: '0.1rem',
-    borderColor: 'black',
-    borderStyle: 'solid',
+    border: 'black',
   },
   variants: {
     size: {

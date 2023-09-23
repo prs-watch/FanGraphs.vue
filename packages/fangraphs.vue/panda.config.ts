@@ -19,11 +19,11 @@ export default defineConfig({
     tokens: {
       // width, height (as relative)
       sizes: {
-        xs: { value: '10%' },
-        sm: { value: '30%' },
-        md: { value: '50%' },
-        lg: { value: '70%' },
-        xl: { value: '100%' },
+        xs: { value: '0.5rem' },
+        sm: { value: '0.75rem' },
+        md: { value: '1rem' },
+        lg: { value: '1.25rem' },
+        xl: { value: '1.5rem' },
       },
       // margin, padding
       spacing: {
@@ -53,6 +53,16 @@ export default defineConfig({
         lightblue: { value: '#eaf2f8' },
         darkblue: { value: '#1a89c8' },
       },
+      borders: {
+        black: { value: '0.1rem solid {colors.black}' },
+        lightgray: { value: '0.1rem solid {colors.lightgray}' },
+        green: { value: '0.1rem solid {colors.green}' },
+        brown: { value: '0.1rem solid {colors.brown}' },
+      },
+      // opacity
+      opacity: {
+        80: { value: 0.8 },
+      },
     },
     semanticTokens: {
       colors: {
@@ -62,9 +72,13 @@ export default defineConfig({
         focused: { value: '{colors.lightgray}' },
         checked: { value: '{colors.darkblue}' },
       },
-      // opacity
+      borders: {
+        primary: { value: '{borders.green}' },
+        secondary: { value: '{borders.brown}' },
+      },
       opacity: {
-        basic: { value: 0.8 },
+        // @ts-ignore
+        basic: { value: '{opacity.80}' },
       },
     },
   },

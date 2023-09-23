@@ -7,11 +7,11 @@ export const callout = cva({
   },
   variants: {
     size: {
-      xs: { width: 'xs', margin: 'xs', padding: 'xs' },
-      sm: { width: 'sm', margin: 'sm', padding: 'sm' },
-      md: { width: 'md', margin: 'md', padding: 'md' },
-      lg: { width: 'lg', margin: 'lg', padding: 'lg' },
-      xl: { width: 'xl', margin: 'xl', padding: 'xl' },
+      xs: { width: '1/5', margin: 'xs', padding: 'xs' },
+      sm: { width: '2/5', margin: 'sm', padding: 'sm' },
+      md: { width: '3/5', margin: 'md', padding: 'md' },
+      lg: { width: '4/5', margin: 'lg', padding: 'lg' },
+      xl: { width: '5/5', margin: 'xl', padding: 'xl' },
     },
   },
   defaultVariants: {

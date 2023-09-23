@@ -18,9 +18,7 @@ defineProps({
             css({
               backgroundColor: 'gray',
               color: 'white',
-              borderWidth: '0.1rem',
-              borderColor: 'lightgray',
-              borderStyle: 'solid',
+              border: 'lightgray',
               padding: 'xs',
             })
           "
@@ -44,9 +42,7 @@ defineProps({
           v-for="td in row"
           :class="
             css({
-              borderWidth: '0.1rem',
-              borderColor: 'lightgray',
-              borderStyle: 'solid',
+              border: 'lightgray',
             })
           "
         >
