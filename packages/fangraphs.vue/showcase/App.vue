@@ -27,10 +27,22 @@ const items = [...Array(10)].map((_, index) => {
 
 <template>
   <C.Card title="Button" size="lg">
-    <C.Button label="button-sm" size="sm" />
-    <C.Button label="button-md" />
-    <C.Button label="button-md-secondary" color="secondary" />
-    <C.Button label="button-lg" size="lg" />
+    <C.Button
+      @click="() => console.log('button-sm')"
+      label="button-sm"
+      size="sm"
+    />
+    <C.Button @click="() => console.log('button-md')" label="button-md" />
+    <C.Button
+      @click="() => console.log('button-md-secondary')"
+      label="button-md-secondary"
+      color="secondary"
+    />
+    <C.Button
+      @click="() => console.log('button-lg')"
+      label="button-lg"
+      size="lg"
+    />
   </C.Card>
   <C.Card title="Text Field" size="lg">
     <C.TextField v-model="tfsm" size="sm" />

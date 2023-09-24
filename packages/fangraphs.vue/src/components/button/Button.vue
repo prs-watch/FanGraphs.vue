@@ -9,10 +9,14 @@ defineProps({
   size: String as PropType<SizeType>,
   color: String as PropType<ColorType>,
 })
+defineEmits(['click'])
 </script>
 
 <template>
-  <a :id="'button:' + uuidv4()" :class="button({ size: size, color: color })">{{
-    label
-  }}</a>
+  <a
+    :id="'button:' + uuidv4()"
+    :class="button({ size: size, color: color })"
+    @click="$emit('click')"
+    >{{ label }}</a
+  >
 </template>
