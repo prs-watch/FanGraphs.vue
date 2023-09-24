@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import * as C from '../src/fangraphs'
 
-// dummy data for Table showcase
+// dummy data for Textfield
+const tfsm = ref('textfield-sm')
+const tfmd = ref('textfield-md')
+const tflg = ref('textfield-lg')
+
+// dummy data for Table
 const colNum = 10
 const rowNum = 10
 const headers = [...Array(colNum)].map((_, index) => {
@@ -13,7 +19,7 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
   })
 })
 
-// dummy data for Select showcase
+// dummy data for Select
 const items = [...Array(10)].map((_, index) => {
   return { label: 'Item' + index, value: index.toString() }
 })
@@ -27,9 +33,9 @@ const items = [...Array(10)].map((_, index) => {
     <C.Button label="button-lg" size="lg" />
   </C.Card>
   <C.Card title="Text Field" size="lg">
-    <C.TextField value="textfield-sm" size="sm" />
-    <C.TextField value="textfield-md" />
-    <C.TextField value="textfield-lg" size="lg" />
+    <C.TextField v-model="tfsm" size="sm" />
+    <C.TextField v-model="tfmd" />
+    <C.TextField v-model="tflg" size="lg" />
   </C.Card>
   <C.Card title="Callout" size="lg">
     <C.Callout size="sm">
