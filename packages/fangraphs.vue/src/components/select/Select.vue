@@ -12,12 +12,19 @@ import { option } from './select.option.style'
 import { root } from './select.root.style'
 import { value } from './select.value.style'
 
+type Option = {
+  label: String
+  value: String
+}
+
 const props = defineProps({
-  items: Object as PropType<{ label: String; value: String }[]>,
-  default: String,
+  modelValue: String,
+  items: Object as PropType<Option[]>,
   label: String,
   size: String as PropType<SizeType>,
 })
+const emits = defineEmits(['update:model-value'])
+
 const collection = select.collection({
   items: props.items ? props.items : [],
 })
@@ -25,7 +32,10 @@ const [state, send] = useMachine(
   select.machine({
     id: uuidv4(),
     collection,
-    value: props.default ? [props.default] : [],
+    value: props.modelValue ? [props.modelValue] : [],
+    onValueChange(details) {
+      emits('update:model-value', (details.items[0] as Option).value)
+    },
   }),
 )
 const api = computed(() => select.connect(state.value, send, normalizeProps))

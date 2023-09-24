@@ -19,10 +19,18 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
   })
 })
 
+// dummy data for Checkbox
+const isRookie = ref(false)
+const isHOF = ref(true)
+const isOnActiveRoster = ref(false)
+
 // dummy data for Select
 const items = [...Array(10)].map((_, index) => {
   return { label: 'Item' + index, value: index.toString() }
 })
+const slsm = ref()
+const slmd = ref('5')
+const sllg = ref()
 </script>
 
 <template>
@@ -76,14 +84,14 @@ const items = [...Array(10)].map((_, index) => {
     <C.Table :headers="headers" :contents="contents" />
   </C.Card>
   <C.Card title="Checkbox" size="lg">
-    <C.Checkbox label="Rookie" size="sm" />
-    <C.Checkbox label="Rookie" />
-    <C.Checkbox label="Rookie" size="lg" />
+    <C.Checkbox v-model="isRookie" label="Rookie" size="sm" />
+    <C.Checkbox v-model="isHOF" label="HOF" />
+    <C.Checkbox v-model="isOnActiveRoster" label="Active Roster" size="lg" />
   </C.Card>
   <C.Card title="Select" size="lg">
-    <C.Select :items="items" label="Season" size="sm" />
-    <C.Select :items="items" label="Season" default="5" />
-    <C.Select :items="items" label="Season" size="lg" />
+    <C.Select v-model="slsm" :items="items" label="Season" size="sm" />
+    <C.Select v-model="slmd" :items="items" label="Season" />
+    <C.Select v-model="sllg" :items="items" label="Season" size="lg" />
   </C.Card>
   <C.Card title="Badge" size="lg">
     <C.Badge color="primary" label="Podcast" />

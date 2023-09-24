@@ -10,12 +10,22 @@ import { icon } from './checkbox.icon.style'
 import { lab } from './checkbox.label.style'
 import { root } from './checkbox.root.style'
 
-defineProps({
+const props = defineProps({
+  modelValue: Boolean,
   label: String,
   size: String as PropType<SizeType>,
 })
+const emits = defineEmits(['update:model-value'])
 
-const [state, send] = useMachine(checkbox.machine({ id: uuidv4() }))
+const [state, send] = useMachine(
+  checkbox.machine({
+    id: uuidv4(),
+    checked: props.modelValue,
+    onCheckedChange(details) {
+      emits('update:model-value', details.checked)
+    },
+  }),
+)
 const api = computed(() => checkbox.connect(state.value, send, normalizeProps))
 </script>
 
