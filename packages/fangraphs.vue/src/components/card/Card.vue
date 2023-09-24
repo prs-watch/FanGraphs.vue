@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { card } from './card.style'
-import { header } from './card.header.style'
-import { body } from './card.body.style'
 import { SizeType, ColorType } from '../../../panda.config.type'
+import { body } from './card.body.style'
+import { header } from './card.header.style'
+import { card } from './card.style'
 
 defineProps({
   size: String as PropType<SizeType>,

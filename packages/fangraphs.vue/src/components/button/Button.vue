@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { button } from './button.style.ts'
 import { SizeType, ColorType } from '../../../panda.config.type'
+import { button } from './button.style.ts'
 
 defineProps({
   label: String,

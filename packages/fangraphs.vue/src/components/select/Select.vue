@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import { PropType, computed, Teleport } from 'vue'
+import { Icon } from '@iconify/vue'
 import * as select from '@zag-js/select'
 import { normalizeProps, useMachine } from '@zag-js/vue'
-import { PropType, computed, Teleport } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
-import { Icon } from '@iconify/vue'
+import { SizeType } from '../../../panda.config.type'
 import { css } from '../../../styled-system/css'
-import { root } from './select.root.style'
 import { lab } from './select.label.style'
-import { value } from './select.value.style'
 import { menu } from './select.menu.style'
 import { option } from './select.option.style'
-import { SizeType } from '../../../panda.config.type'
+import { root } from './select.root.style'
+import { value } from './select.value.style'
 
 const props = defineProps({
   items: Object as PropType<{ label: String; value: String }[]>,

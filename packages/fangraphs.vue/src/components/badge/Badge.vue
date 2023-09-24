@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { badge } from './badge.style'
 import { ColorType } from '../../../panda.config.type'
+import { badge } from './badge.style'
 
 defineProps({
   label: String,

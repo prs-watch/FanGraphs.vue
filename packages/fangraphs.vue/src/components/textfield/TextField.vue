@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { textfield } from './textfield.style.ts'
 import { SizeType } from '../../../panda.config.type'
+import { textfield } from './textfield.style.ts'
 
 defineProps({
   size: String as PropType<SizeType>,

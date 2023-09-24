@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { PropType, computed } from 'vue'
+import { Icon } from '@iconify/vue'
 import * as checkbox from '@zag-js/checkbox'
 import { normalizeProps, useMachine } from '@zag-js/vue'
 import { v4 as uuidv4 } from 'uuid'
-import { PropType, computed } from 'vue'
-import { Icon } from '@iconify/vue'
-import { root } from './checkbox.root.style'
+import { SizeType } from '../../../panda.config.type'
 import { control } from './checkbox.control.style'
 import { icon } from './checkbox.icon.style'
 import { lab } from './checkbox.label.style'
-import { SizeType } from '../../../panda.config.type'
+import { root } from './checkbox.root.style'
 
 defineProps({
   label: String,

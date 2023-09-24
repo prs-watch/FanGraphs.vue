@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { callout } from './callout.style'
 import { SizeType } from '../../../panda.config.type'
+import { callout } from './callout.style'
 
 defineProps({
   size: String as PropType<SizeType>,
