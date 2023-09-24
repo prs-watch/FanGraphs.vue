@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { badge } from './badge.style'
+import { v4 as uuidv4 } from 'uuid'
 import { ColorType } from '../../../panda.config.type'
+import { badge } from './badge.style'
 
 defineProps({
   label: String,
@@ -10,5 +11,5 @@ defineProps({
 </script>
 
 <template>
-  <a :class="badge({ color: color })">{{ label }}</a>
+  <a :id="'badge:' + uuidv4()" :class="badge({ color: color })">{{ label }}</a>
 </template>

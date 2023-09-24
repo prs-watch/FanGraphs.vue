@@ -1,23 +1,30 @@
 <script setup lang="ts">
+import { PropType, computed, Teleport } from 'vue'
+import { Icon } from '@iconify/vue'
 import * as select from '@zag-js/select'
 import { normalizeProps, useMachine } from '@zag-js/vue'
-import { PropType, computed, Teleport } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
-import { Icon } from '@iconify/vue'
+import { SizeType } from '../../../panda.config.type'
 import { css } from '../../../styled-system/css'
-import { root } from './select.root.style'
 import { lab } from './select.label.style'
-import { value } from './select.value.style'
 import { menu } from './select.menu.style'
 import { option } from './select.option.style'
-import { SizeType } from '../../../panda.config.type'
+import { root } from './select.root.style'
+import { value } from './select.value.style'
+
+type Option = {
+  label: String
+  value: String
+}
 
 const props = defineProps({
-  items: Object as PropType<{ label: String; value: String }[]>,
-  default: String,
+  modelValue: String,
+  items: Object as PropType<Option[]>,
   label: String,
   size: String as PropType<SizeType>,
 })
+const emits = defineEmits(['update:model-value'])
+
 const collection = select.collection({
   items: props.items ? props.items : [],
 })
@@ -25,7 +32,10 @@ const [state, send] = useMachine(
   select.machine({
     id: uuidv4(),
     collection,
-    value: props.default ? [props.default] : [],
+    value: props.modelValue ? [props.modelValue] : [],
+    onValueChange(details) {
+      emits('update:model-value', (details.items[0] as Option).value)
+    },
   }),
 )
 const api = computed(() => select.connect(state.value, send, normalizeProps))

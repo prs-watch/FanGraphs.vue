@@ -1,7 +1,13 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import * as C from '../src/fangraphs'
 
-// dummy data for Table showcase
+// dummy data for Textfield
+const tfsm = ref('textfield-sm')
+const tfmd = ref('textfield-md')
+const tflg = ref('textfield-lg')
+
+// dummy data for Table
 const colNum = 10
 const rowNum = 10
 const headers = [...Array(colNum)].map((_, index) => {
@@ -13,23 +19,43 @@ const contents = [...Array(rowNum)].map((_, rowIndex) => {
   })
 })
 
-// dummy data for Select showcase
+// dummy data for Checkbox
+const isRookie = ref(false)
+const isHOF = ref(true)
+const isOnActiveRoster = ref(false)
+
+// dummy data for Select
 const items = [...Array(10)].map((_, index) => {
   return { label: 'Item' + index, value: index.toString() }
 })
+const slsm = ref()
+const slmd = ref('5')
+const sllg = ref()
 </script>
 
 <template>
   <C.Card title="Button" size="lg">
-    <C.Button label="button-sm" size="sm" />
-    <C.Button label="button-md" />
-    <C.Button label="button-md-secondary" color="secondary" />
-    <C.Button label="button-lg" size="lg" />
+    <C.Button
+      @click="() => console.log('button-sm')"
+      label="button-sm"
+      size="sm"
+    />
+    <C.Button @click="() => console.log('button-md')" label="button-md" />
+    <C.Button
+      @click="() => console.log('button-md-secondary')"
+      label="button-md-secondary"
+      color="secondary"
+    />
+    <C.Button
+      @click="() => console.log('button-lg')"
+      label="button-lg"
+      size="lg"
+    />
   </C.Card>
   <C.Card title="Text Field" size="lg">
-    <C.TextField value="textfield-sm" size="sm" />
-    <C.TextField value="textfield-md" />
-    <C.TextField value="textfield-lg" size="lg" />
+    <C.TextField v-model="tfsm" size="sm" />
+    <C.TextField v-model="tfmd" />
+    <C.TextField v-model="tflg" size="lg" />
   </C.Card>
   <C.Card title="Callout" size="lg">
     <C.Callout size="sm">
@@ -58,14 +84,14 @@ const items = [...Array(10)].map((_, index) => {
     <C.Table :headers="headers" :contents="contents" />
   </C.Card>
   <C.Card title="Checkbox" size="lg">
-    <C.Checkbox label="Rookie" size="sm" />
-    <C.Checkbox label="Rookie" />
-    <C.Checkbox label="Rookie" size="lg" />
+    <C.Checkbox v-model="isRookie" label="Rookie" size="sm" />
+    <C.Checkbox v-model="isHOF" label="HOF" />
+    <C.Checkbox v-model="isOnActiveRoster" label="Active Roster" size="lg" />
   </C.Card>
   <C.Card title="Select" size="lg">
-    <C.Select :items="items" label="Season" size="sm" />
-    <C.Select :items="items" label="Season" default="5" />
-    <C.Select :items="items" label="Season" size="lg" />
+    <C.Select v-model="slsm" :items="items" label="Season" size="sm" />
+    <C.Select v-model="slmd" :items="items" label="Season" />
+    <C.Select v-model="sllg" :items="items" label="Season" size="lg" />
   </C.Card>
   <C.Card title="Badge" size="lg">
     <C.Badge color="primary" label="Podcast" />

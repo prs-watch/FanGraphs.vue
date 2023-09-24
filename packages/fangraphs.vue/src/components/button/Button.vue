@@ -1,15 +1,22 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
-import { button } from './button.style.ts'
+import { v4 as uuidv4 } from 'uuid'
 import { SizeType, ColorType } from '../../../panda.config.type'
+import { button } from './button.style.ts'
 
 defineProps({
   label: String,
   size: String as PropType<SizeType>,
   color: String as PropType<ColorType>,
 })
+defineEmits(['click'])
 </script>
 
 <template>
-  <a :class="button({ size: size, color: color })">{{ label }}</a>
+  <a
+    :id="'button:' + uuidv4()"
+    :class="button({ size: size, color: color })"
+    @click="$emit('click')"
+    >{{ label }}</a
+  >
 </template>
