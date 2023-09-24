@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { PropType } from 'vue'
+import { v4 as uuidv4 } from 'uuid'
 import { css } from '../../../styled-system/css'
 
 defineProps({
@@ -9,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-  <table>
+  <table :id="'table:' + uuidv4()">
     <thead>
       <tr>
         <th
